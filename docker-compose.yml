@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  # RDS使うなら不要
+  db:
+    build:
+      context: .
+      dockerfile: ./db//Dockerfile
+    networks:
+      - my_bridge_network
+    environment:
+      MYSQL_ROOT_PASSWORD: NHxFPvDh
+      MYSQL_DATABASE: db
+    volumes:
+      - ./db/mysql_data_volume:/var/lib/mysql
+  app:
+    build:
+      context: .
+      dockerfile: ./app//Dockerfile
+    networks:
+      - my_bridge_network
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s"
+    volumes:
+      - ./app:/app_container
+    ## production 環境
+    #environment:
+    #  RAILS_ENV: production
+  web:
+    build:
+      context: .
+      dockerfile: ./web/Dockerfile
+    networks:
+      - my_bridge_network
+    #localhost:80 でnginx serverの80番ポートにアクセスする
+    ports:
+      - '80:80'
+    #appコンテナとvolumeを共有することで、共通のsocketファイルを用いてnginx-puma間のunixドメインソケット通信が可能
+    volumes_from: 
+      - app
+    depends_on:
+      - app
+
+# defaultで生成されるネットワークだと、コンテナ名でpingが届かない
+networks: 
+  my_bridge_network:
+    # Use a default driver

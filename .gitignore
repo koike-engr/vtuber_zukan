@@ -1,0 +1,4 @@
+# ./app/ 内にもapp用の.gitignore(railsが自動生成)があることに注意
+
+# db: レコードの中身はpushしない
+/db/mysql_data_volume/

@@ -1,0 +1,6 @@
+# 自分用メモ
+gitignore されてるファイルがいくつかあるので、正確にクローンしたいならローカルからコピーする
+Documents/docker_rails_nginx
+
+# master.key
+fc903cc3073305398eab6b0ad3ea50d1root@f7dfa80fd7e2
