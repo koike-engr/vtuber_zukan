@@ -6,4 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Vtuber.create(name: 'coco', subscribers: 130)
+Vtuber.first_or_create([
+    {name: '桐生ココ', subscribers: 94.4},
+    {name: '潤羽るしあ', subscribers: 87.9}
+])
