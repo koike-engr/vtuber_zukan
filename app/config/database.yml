@@ -13,6 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  
+  # production 環境では一応切っておく
   username: root
   password: NHxFPvDh
   host: db
@@ -20,11 +22,7 @@ default: &default
 development:
   <<: *default
   database: app_container_development
-  ## RDS使うけど、railsはdevelopment環境のままにしておきたいとき
-  #database: test-db
-  #username: root
-  #password: hogehoge
-  #host: test-db.ckejo2fgtdne.ap-northeast-1.rds.amazonaws.com
+  # RDS & development環境は非考慮
 
 
 # Warning: The database defined as "test" will be erased and
