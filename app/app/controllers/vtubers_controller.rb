@@ -5,4 +5,6 @@ class VtubersController < ApplicationController
   def new
     @vtuber = Vtuber.new
   end
+  def create
+  end
 end
