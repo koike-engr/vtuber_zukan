@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Vtuber.first_or_create([
-    {name: '桐生ココ', subscribers: 94.4},
-    {name: '潤羽るしあ', subscribers: 87.9}
+    {name: '桐生ココ', subscribers: 94.4, superchats: 161650781},
+    {name: '潤羽るしあ', subscribers: 87.9, superchats: 156590880}
 ])
