@@ -1,0 +1,2 @@
+class Scfld < ApplicationRecord
+end

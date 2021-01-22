@@ -24,8 +24,8 @@ services:
     environment:
       # db:schema:dump の保存先を指定: db:migrateの不具合防止 
       SCHEMA: /app_container/config/db/schema.rb
-    ## production 環境
-    #  RAILS_ENV: production
+      # # production 環境
+      # RAILS_ENV: production
   web:
     build:
       context: .
