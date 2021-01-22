@@ -21,9 +21,7 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s"
     volumes:
       - ./app:/app_container
-    environment:
-      # db:schema:dump の保存先を指定: db:migrateの不具合防止 
-      SCHEMA: /app_container/config/db/schema.rb
+    # environment:
       # # production 環境
       # RAILS_ENV: production
   web:
