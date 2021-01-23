@@ -1,5 +1,13 @@
-<h1>Vtubers#new</h1>
-<%= form_with model: @vtuber do |form| %>
+<h1>Vtuberを追加する!</h1>
+<%= form_with(model: @vtuber, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name, '名前' %>
     <%= form.text_field :name %>
-    <%= form.submit "送信" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '送信' %>
+  </div>
 <% end %>
+
+<%= link_to '戻る', vtubers_path %>

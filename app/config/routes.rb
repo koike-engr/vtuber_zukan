@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'vtubers/index'
-  get 'vtubers/new'
-  post 'vtubers' => 'vtubers#create'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :vtubers, only: [:index, :new, :create, :show]
   root 'vtubers#index'
 end
