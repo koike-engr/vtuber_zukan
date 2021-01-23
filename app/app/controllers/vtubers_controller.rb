@@ -1,5 +1,5 @@
 class VtubersController < ApplicationController
-  before_action :set_vtuber, only: [:edit, :update, :show, :destory]
+  before_action :set_vtuber, only: [:edit, :update, :show, :destroy]
   
   def index
     @vtubers = Vtuber.all
@@ -21,6 +21,12 @@ class VtubersController < ApplicationController
 
   def show
   end
+
+  def destroy
+    @vtuber.destroy
+    redirect_to vtubers_path, notice:'destroyed'
+  end
+  
 
   private
     def set_vtuber
