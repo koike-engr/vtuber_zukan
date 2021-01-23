@@ -53,12 +53,12 @@ test:
 #
 production:
   <<: *default
-  #host: test-db.ckejo2fgtdne.ap-northeast-1.rds.amazonaws.com
-  #database: test-db
-  #username: root
-  #password: hogehoge
-  # localでproduction環境のテストをしたいとき
-  database: app_container_production
+  host: test-db.ckejo2fgtdne.ap-northeast-1.rds.amazonaws.com
+  database: test-db
   username: root
-  password: NHxFPvDh
-  host: db
+  password: hogehoge
+  # # localでproduction環境のテストをしたいとき
+  # database: app_container_production
+  # username: root
+  # password: NHxFPvDh
+  # host: db
