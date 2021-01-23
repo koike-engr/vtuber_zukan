@@ -1,4 +1,5 @@
 class VtubersController < ApplicationController
+  before_action :set_vtuber, only: [:edit, :update, :show, :destory]
   
   def index
     @vtubers = Vtuber.all
@@ -22,6 +23,10 @@ class VtubersController < ApplicationController
   end
 
   private
+    def set_vtuber
+      @vtuber = Vtuber.find(params[:id])
+    end
+    
     def vtuber_params
       params.require(:vtuber).permit(:name, :subscribers, :superchats)
     end
