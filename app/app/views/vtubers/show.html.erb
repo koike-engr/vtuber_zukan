@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>show!</h1>
-<p>
-    <%= @vtuber.name %>
-</p>
-<%= link_to '削除する', @vtuber, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to '一覧へ戻る', vtubers_path %>
+<div>
+    <%= link_to(image_tag(@vtuber.avatar.thumb.url, alt: '画像'), @vtuber.avatar.url, target: '_blank') if @vtuber.avatar? %>
+    <p>名前: <%= @vtuber.name %></p>
+    <p>チャンネル登録者数: <%= @vtuber.subscribers %>万人</p>
+    <p>累計スパチャ額: <%= @vtuber.superchats %>円</p>
+    <%= link_to '編集する', edit_vtuber_path %>
+    <%= link_to '削除する', @vtuber, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
+<div>
+    <%= link_to '一覧へ戻る', vtubers_path %>
+</div>

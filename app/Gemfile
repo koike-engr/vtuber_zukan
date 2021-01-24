@@ -60,3 +60,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# 画像アップロード用
+gem 'carrierwave', '~> 2.0'
+# 画像リサイズ用
+gem 'mini_magick'

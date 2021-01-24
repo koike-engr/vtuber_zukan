@@ -1,10 +1,27 @@
 <%= form_with(model: vtuber, local: true) do |form| %>
-  <div class="field">
-    <%= form.label :name, '名前' %>
-    <%= form.text_field :name %>
-  </div>
+<div class="field">
+  <%= form.label :name, '名前' %>
+  <%= form.text_field :name %>
+</div>
 
-  <div class="actions">
-    <%= form.submit '送信' %>
+<div class="field">
+  <% unless vtuber.avatar? %>
+  <p>↓画像をアップロードできます!</p>
+  <%= form.file_field :avatar %>
+  <% end %>
+
+  <% if vtuber.avatar? %>
+  <%= image_tag vtuber.avatar.url %>
+  <div>
+    <%= label_tag :remove_avatar do %>
+    画像を削除します
+    <%=  form.check_box :remove_avatar %>
+    <% end %>
   </div>
+  <% end %>
+</div>
+
+<div class="actions">
+  <%= form.submit '送信' %>
+</div>
 <% end %>

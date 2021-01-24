@@ -27,6 +27,16 @@ class VtubersController < ApplicationController
     redirect_to vtubers_path, notice:'削除しました'
   end
   
+  def edit
+  end
+
+  def update
+    if @vtuber.update(vtuber_params)
+      redirect_to @vtuber, notice: '変更できました!'
+    else
+      render :edit, notice: '変更に失敗しました'
+    end
+  end
 
   private
     def set_vtuber
@@ -34,6 +44,6 @@ class VtubersController < ApplicationController
     end
     
     def vtuber_params
-      params.require(:vtuber).permit(:name, :subscribers, :superchats)
+      params.require(:vtuber).permit(:name, :subscribers, :superchats, :avatar, :remove_avatar)
     end
 end
