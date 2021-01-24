@@ -1,0 +1,10 @@
+<%= form_with(model: vtuber, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name, '名前' %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '送信' %>
+  </div>
+<% end %>
