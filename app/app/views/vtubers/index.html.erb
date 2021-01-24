@@ -1,8 +1,13 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Vtuber一覧表示</h1>
 <% @vtubers.each do |vtuber| %>
+<div>
     <p>名前: <%= vtuber.name %></p>
     <p>チャンネル登録者数: <%= vtuber.subscribers %>万人</p>
     <p>累計スパチャ額: <%= vtuber.superchats %>円</p>
+    <%= link_to '詳細はこちら', vtuber %>
+</div>
 <% end %>
 
 <%= link_to 'Vtuberを追加する!', new_vtuber_path %>
