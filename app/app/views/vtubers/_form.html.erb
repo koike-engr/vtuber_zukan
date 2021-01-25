@@ -1,17 +1,12 @@
 <%= form_with(model: vtuber, local: true) do |form| %>
 <div class="field">
-  <%= form.label :name, '名前' %>
-  <%= form.text_field :name %>
-</div>
-
-<div class="field">
   <% unless vtuber.avatar? %>
   <p>↓画像をアップロードできます!</p>
   <%= form.file_field :avatar %>
   <% end %>
 
   <% if vtuber.avatar? %>
-  <%= image_tag vtuber.avatar.url %>
+  <%= link_to(image_tag(@vtuber.avatar.thumb.url, alt: '画像'), @vtuber.avatar.url, target: '_blank') if @vtuber.avatar? %>
   <div>
     <%= label_tag :remove_avatar do %>
     画像を削除します
@@ -19,6 +14,21 @@
     <% end %>
   </div>
   <% end %>
+</div>
+
+<div class="field">
+  <%= form.label :name, '名前' %>
+  <%= form.text_field :name %>
+</div>
+
+<div class="field">
+  <%= form.label :subscribers, 'チャンネル登録者数' %>
+  <%= form.number_field :subscribers, step: "0.1" %>
+</div>
+
+<div class="field">
+  <%= form.label :superchats, '累計スパチャ額' %>
+  <%= form.number_field :superchats %>
 </div>
 
 <div class="actions">

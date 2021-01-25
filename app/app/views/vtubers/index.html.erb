@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Vtuber一覧表示</h1>
+<h1>Vtuber図鑑</h1>
 <% @vtubers.each do |vtuber| %>
 <div>
     <%= link_to(image_tag(vtuber.avatar.thumb.url, alt: '画像'), vtuber.avatar.url, target: '_blank') if vtuber.avatar? %>
     <p>名前: <%= vtuber.name %></p>
     <p>チャンネル登録者数: <%= vtuber.subscribers %>万人</p>
-    <p>累計スパチャ額: <%= vtuber.superchats %>円</p>
+    <% if vtuber.superchats? %>
+    <p>累計スパチャ額: <%= vtuber.superchats.to_s(:delimited) %>円</p>
+    <% else %>
+    <p>累計スパチャ額: 円</p>
+    <% end %>
     <%= link_to '詳細はこちら', vtuber %>
 </div>
 <% end %>
