@@ -2,3 +2,6 @@
 
 # db: レコードの中身はpushしない
 /db/mysql_data_volume/
+
+# note
+.vscode

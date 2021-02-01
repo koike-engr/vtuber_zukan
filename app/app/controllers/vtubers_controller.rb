@@ -15,7 +15,7 @@ class VtubersController < ApplicationController
     if @vtuber.save
       redirect_to @vtuber, notice: '追加できました!'
     else
-      render :new, notice: '作成に失敗しました'
+      redirect_to new_vtuber_path, alert: '作成に失敗しました。未入力の項目があります。'
     end
   end
 
@@ -34,7 +34,7 @@ class VtubersController < ApplicationController
     if @vtuber.update(vtuber_params)
       redirect_to @vtuber, notice: '変更できました!'
     else
-      render :edit, notice: '変更に失敗しました'
+      redirect_to edit_vtuber_path(@vtuber), alert: '変更に失敗しました。未入力の項目があります。'
     end
   end
 
