@@ -34,7 +34,7 @@ RSpec.describe "Vtubers", type: :system do
         fill_in 'チャンネル登録者数', with: FactoryBot.attributes_for(:vtuber)[:subscribers]
         fill_in '累計スパチャ額', with: FactoryBot.attributes_for(:vtuber)[:superchats]
         click_button '送信'
-        expect(current_path).to eq "/vtubers/new"
+        expect(current_path).to eq new_vtuber_path
         expect(page).to have_content "作成に失敗しました。未入力の項目があります。"
       end
     end
