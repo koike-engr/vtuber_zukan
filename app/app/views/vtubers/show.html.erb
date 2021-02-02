@@ -1,18 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<div>
-    <%= link_to(image_tag(@vtuber.avatar.thumb.url, alt: '画像'), @vtuber.avatar.url, target: '_blank') if @vtuber.avatar? %>
-    <p>名前: <%= @vtuber.name %></p>
-    <p>チャンネル登録者数: <%= @vtuber.subscribers %>万人</p>
-    <% if @vtuber.superchats? %>
-    <p>累計スパチャ額: <%= @vtuber.superchats.to_s(:delimited) %>円</p>
-    <% else %>
-    <p>累計スパチャ額: 円</p>
-    <% end %>
-    <%= link_to '編集する', edit_vtuber_path %>
-    <%= link_to '削除する', @vtuber, method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>
 
-<div>
-    <%= link_to '一覧へ戻る', vtubers_path %>
+<div class="detail-content">
+    <div class="info">
+        <div class="info-heder">
+            <div class="info-header-left">
+                <div class="button-container">
+                    <%= link_to '< 一覧へ戻る', vtubers_path, class: "button-link" %>
+                </div>
+            </div>
+            <div class="info-header-right">
+                <div class="button-container">
+                    <%= link_to '編集する', edit_vtuber_path, class: "button-link button-link__red" %>
+                </div>
+                <div class="button-container">
+                    <%= link_to '削除する', @vtuber, method: :delete, data: { confirm: 'Are you sure?' }, class: "button-link" %>
+                </div>
+            </div>
+        </div>
+        <div class="info-content">
+            <div class="image-container">
+                <%= image_tag(@vtuber.avatar.url, alt: "Vtuberの画像", :width => "100%", class: "vtuber-image") if @vtuber.avatar? %>
+            </div>
+            <div class="text-container">
+                <p class="title"><%= @vtuber.name %></p>
+                <p class="subtitle">チャンネル登録者数</p>
+                <p class="number"><%= @vtuber.subscribers %>万人</p>
+                <p class="subtitle">累計スパチャ額</p>
+                <% if @vtuber.superchats? %>
+                <p class="number"><%= @vtuber.superchats.to_s(:delimited) %>円</p>
+                <% else %>
+                <p class="number">不明</p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="community">
+        <div class="community-header">
+            <p>コメントはこちら</p>
+        </div>
+        <div class="community-content">
+            <p>コメント1</p>
+        </div>
+    </div>
+    <div class="nav">
+        <%= link_to '< 一覧へ戻る', vtubers_path %>
+    </div>
 </div>

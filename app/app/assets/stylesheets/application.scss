@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+@import "color";
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+:root {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: $text-primary;
+}

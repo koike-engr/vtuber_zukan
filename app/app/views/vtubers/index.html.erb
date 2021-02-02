@@ -1,18 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Vtuber図鑑</h1>
-<% @vtubers.each do |vtuber| %>
-<div>
-    <%= link_to(image_tag(vtuber.avatar.thumb.url, alt: '画像'), vtuber.avatar.url, target: '_blank') if vtuber.avatar? %>
-    <p>名前: <%= vtuber.name %></p>
-    <p>チャンネル登録者数: <%= vtuber.subscribers %>万人</p>
-    <% if vtuber.superchats? %>
-    <p>累計スパチャ額: <%= vtuber.superchats.to_s(:delimited) %>円</p>
-    <% else %>
-    <p>累計スパチャ額: 円</p>
-    <% end %>
-    <%= link_to '詳細はこちら', vtuber %>
+<div class="home-section">
+    <h1>▷Vtuber図鑑</h1>
+    <p>Who is the MOST super chatted ... ? </p>
 </div>
-<% end %>
-
-<%= link_to 'Vtuberを追加する!', new_vtuber_path %>
+<div class="index-content">
+    <div class="stats-card">
+        <p class="title">Total Stats</p>
+        <div class="stat-items">
+            <div class="stat-item">
+                <p class="number"><%= @vtubers.count %></p>
+                <p class="indicator">Vtubers</p>
+            </div>
+            <div class="stat-item">
+                <p class="number">¥<%= @total_superchats.to_s(:delimited) %></p>
+                <p class="indicator">Superchats</p>
+            </div>
+        </div>
+    </div>
+    <div class="vtubers-cards-list">
+        <div class="list-header">
+            <div class="title">
+                <p>VTUBERS BOARD</p>
+            </div>
+            <div class="button-wrapper">
+                <div class="button-container">
+                    <%= link_to '+ Vtuberを追加する!', new_vtuber_path, class: "button-link button-link__red" %>
+                </div>
+            </div>
+        </div>
+        <% @vtubers.each do |vtuber| %>
+        <div class="vtuber-card">
+            <%= image_tag(vtuber.avatar.thumb.url, alt: "Vtuberの画像", class: "vtuber-image") if vtuber.avatar? %>
+            <div class="card-content">
+                <p class="title"><%= vtuber.name %></p>
+                <p class="subtitle">チャンネル登録者数: <%= vtuber.subscribers %>万人</p>
+                <% if vtuber.superchats? %>
+                <p class="subtitle">累計スパチャ額: <%= vtuber.superchats.to_s(:delimited) %>円</p>
+                <% else %>
+                <p class="subtitle">累計スパチャ額: 円</p>
+                <% end %>
+            </div>
+            <%= link_to '', vtuber, class:"link-container" %>
+        </div>
+        <% end %>
+    </div>
+</div>
