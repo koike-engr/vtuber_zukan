@@ -3,6 +3,7 @@ class VtubersController < ApplicationController
   
   def index
     @vtubers = Vtuber.all
+    @total_superchats = @vtubers.sum(:superchats)
   end
 
   def new
