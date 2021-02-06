@@ -2,7 +2,7 @@
 
 <div class="home-section">
     <h1>▷Vtuber図鑑</h1>
-    <p>Who is the MOST super chatted ... ? </p>
+    <p>Who is the MOST super chatted ? </p>
 </div>
 <div class="index-content">
     <div class="stats-card">
@@ -18,8 +18,8 @@
             </div>
         </div>
     </div>
-    <div class="vtubers-cards-list">
-        <div class="list-header">
+    <div class="cards-list">
+        <div class="cards-list-header">
             <div class="title">
                 <p>VTUBERS BOARD</p>
             </div>
@@ -30,9 +30,9 @@
             </div>
         </div>
         <% @vtubers.each do |vtuber| %>
-        <div class="vtuber-card">
+        <div class="card">
             <%= image_tag(vtuber.avatar.thumb.url, alt: "Vtuberの画像", class: "vtuber-image") if vtuber.avatar? %>
-            <div class="card-content">
+            <div>
                 <p class="title"><%= vtuber.name %></p>
                 <p class="subtitle">チャンネル登録者数: <%= vtuber.subscribers %>万人</p>
                 <% if vtuber.superchats? %>
@@ -41,7 +41,7 @@
                 <p class="subtitle">累計スパチャ額: 円</p>
                 <% end %>
             </div>
-            <%= link_to '', vtuber, class:"link-container" %>
+            <%= link_to '', vtuber, class:"card-link" %>
         </div>
         <% end %>
     </div>

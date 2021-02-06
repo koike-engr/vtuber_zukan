@@ -1,0 +1,14 @@
+<h1>Videos index</h1>
+<% @videos.each do |video| %>
+<div class="card">
+    <div class="image-container">
+        <%= image_tag("/videos/#{video.id}.jpg") %>
+    </div>
+    <div>
+        <p class="title"><%= video.title %></p>
+    </div>
+    <%= link_to '', video.url, class: "card-link" %>
+</div>
+<% end %>
+
+<%= link_to 'Vtuberの詳細ページへ戻る', vtuber_path(@vtuber.id) %>

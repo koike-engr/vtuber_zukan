@@ -25,22 +25,47 @@
             <div class="text-container">
                 <p class="title"><%= @vtuber.name %></p>
                 <p class="subtitle">チャンネル登録者数</p>
-                <p class="number"><%= @vtuber.subscribers %>万人</p>
-                <p class="subtitle">累計スパチャ額</p>
+                <p class="number"><%= @vtuber.subscribers %> 万人</p>
                 <% if @vtuber.superchats? %>
-                <p class="number"><%= @vtuber.superchats.to_s(:delimited) %>円</p>
-                <% else %>
-                <p class="number">不明</p>
+                <p class="subtitle">累計スパチャ額</p>
+                <p class="number">¥ <%= @vtuber.superchats.to_s(:delimited) %></p>
+                <% end %>
+                <% if @vtuber.youtube_views? %>
+                <p class="subtitle">チャンネル視聴回数</p>
+                <p class="number"><%= @vtuber.youtube_views.to_s(:delimited) %> 回</p>
+                <% end %>
+                <% unless @vtuber.company == "" %>
+                <p class="subtitle">所属事務所</p>
+                <p class="number"><%= @vtuber.company %></p>
+                <% end %>
+                <% if @vtuber.registered_day? %>
+                <p class="subtitle">チャンネル登録日</p>
+                <p class="number"><%= @vtuber.registered_day %></p>
+                <% end %>
+                <% unless @vtuber.link_to_channel == "" %>
+                <%= link_to 'Youtube公式チャンネルはこちら', @vtuber.link_to_channel %>
                 <% end %>
             </div>
         </div>
     </div>
-    <div class="community">
-        <div class="community-header">
-            <p>コメントはこちら</p>
-        </div>
-        <div class="community-content">
-            <p>コメント1</p>
+    <div class="movies">
+        <div class="cards-list">
+            <div class="cards-list-header">
+                <div class="title">
+                    <%= link_to '> More videos', vtuber_videos_path(@vtuber.id), class: "link" %>
+                </div>
+            </div>
+            <% @vtuber.videos.each do |video| %>
+            <div class="card">
+                <div class="image-container">
+                    <%= image_tag("/videos/#{video.id}.jpg") %>
+                </div>
+                <div>
+                    <p class="title"><%= video.title %></p>
+                </div>
+                <%= link_to '', video.url, class: "card-link" %>
+            </div>
+            <% end %>
         </div>
     </div>
     <div class="nav">
