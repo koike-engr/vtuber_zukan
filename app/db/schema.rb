@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_112541) do
+ActiveRecord::Schema.define(version: 2021_02_06_112050) do
 
   create_table "videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "vtuber_id"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2021_02_04_112541) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "url"
+    t.integer "views"
+    t.integer "likes"
+    t.date "published_day"
     t.index ["vtuber_id"], name: "index_videos_on_vtuber_id"
   end
 

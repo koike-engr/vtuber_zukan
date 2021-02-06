@@ -13,5 +13,5 @@ Vtuber.first_or_create([
 
 Video.first_or_create([
     {vtuber_id: 2, title: "10分でわかる潤羽るしあ台パン集【ホロライブ／切り抜き】", url: "https://www.youtube.com/watch?v=vch1kylo8qQ"},
-    {vtuber_id: 2, title: "【歌ってみた】花に亡霊 / ヨルシカ【潤羽るしあcover】", url: "https://www.youtube.com/watch?v=UBSx4qqeikY"},
+    {vtuber_id: 2, title: "【歌ってみた】花に亡霊 / ヨルシカ【潤羽るしあcover】", url: "https://www.youtube.com/watch?v=UBSx4qqeikY", views: 2591923, likes: 100000, published_day: "2020-08-31"},
 ])
