@@ -45,6 +45,6 @@ class VtubersController < ApplicationController
     end
     
     def vtuber_params
-      params.require(:vtuber).permit(:name, :subscribers, :superchats, :avatar, :remove_avatar)
+      params.require(:vtuber).permit(:name, :subscribers, :superchats, :avatar, :remove_avatar, :youtube_views, :company, :registered_day, :link_to_channel)
     end
 end

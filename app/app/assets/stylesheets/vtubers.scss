@@ -29,6 +29,64 @@
     }
 }
 
+.card {
+    position: relative;
+    display: flex;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .16);
+    margin: 1rem;
+    padding: 1rem;
+    background-color: white;
+
+    .title {
+        font-size: 1.75rem;
+        font-weight: bold;
+    }
+
+    .subtitle {
+        color: $text-secondary;
+    }
+
+    .card-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.cards-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    border: solid;
+    border-color: $border-primary;
+    border-width: 0.1px;
+    border-radius: 8px;
+    background-color: rgb(246, 248, 250);
+
+    .cards-list-header {
+        display: flex;
+        width: 80%;
+
+        .title {
+            font-weight: bold;
+            font-size: 1.5rem;
+            .link {
+                text-decoration: none;
+                color: $text-primary;
+            }
+        }
+
+        .button-wrapper {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
 
 //////////////////////////////////////////////////
 // index
@@ -96,60 +154,6 @@
     }
 }
 
-.vtubers-cards-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1rem;
-    border: solid;
-    border-color: $border-primary;
-    border-width: 0.1px;
-    border-radius: 8px;
-    background-color: rgb(246, 248, 250);
-
-    .list-header {
-        display: flex;
-        width: 80%;
-
-        .title {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .button-wrapper {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-        }
-    }
-
-    .vtuber-card {
-        position: relative;
-        display: flex;
-        box-shadow: 0 0 8px rgba(0, 0, 0, .16);
-        margin: 1rem;
-        padding: 1rem;
-        background-color: white;
-
-        .title {
-            font-size: 1.75rem;
-            font-weight: bold;
-        }
-
-        .subtitle {
-            color: $text-secondary;
-        }
-
-        .link-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    }
-}
-
 //////////////////////////////////////////////////
 // detail
 //////////////////////////////////////////////////
@@ -190,11 +194,17 @@
 
                 .title {
                     font-weight: bold;
-                    font-size: 1.5rem;
+                    font-size: 3rem;
+                    color: $text-primary;
+                }
+                .subtitle {
+                    font-weight: bold;
+                    font-size: 1rem;
+                    color: $text-primary;
                 }
             }
         }
     }
 
-    .community {}
+    .movies {}
 }

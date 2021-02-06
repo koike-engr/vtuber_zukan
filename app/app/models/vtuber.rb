@@ -4,4 +4,6 @@ class Vtuber < ApplicationRecord
     validates :superchats, presence: true
 
     mount_uploader :avatar, AvatarUploader
+
+    has_many :videos
 end

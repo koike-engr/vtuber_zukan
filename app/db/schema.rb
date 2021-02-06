@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_212551) do
+ActiveRecord::Schema.define(version: 2021_02_04_112541) do
+
+  create_table "videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "vtuber_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "url"
+    t.index ["vtuber_id"], name: "index_videos_on_vtuber_id"
+  end
 
   create_table "vtubers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -19,6 +28,11 @@ ActiveRecord::Schema.define(version: 2021_01_24_212551) do
     t.datetime "updated_at", null: false
     t.integer "superchats"
     t.string "avatar"
+    t.integer "youtube_views"
+    t.string "company"
+    t.date "registered_day"
+    t.string "link_to_channel"
   end
 
+  add_foreign_key "videos", "vtubers"
 end

@@ -31,6 +31,26 @@
   <%= form.number_field :superchats %>
 </div>
 
+<div class="field">
+  <%= form.label :youtube_views, 'チャンネル視聴回数' %>
+  <%= form.number_field :youtube_views %>
+</div>
+
+<div class="field">
+  <%= form.label :company, '所属事務所' %>
+  <%= form.select :company, {'ホロライブ': 'ホロライブ', 'にじさんじ': 'にじさんじ', '無所属': '無所属'}, { include_blank: '選択してください'}, { class: 'form-control' } %>
+</div>
+
+<div class="field">
+  <%= form.label :registered_day, 'チャンネル開設日' %>
+  <%= form.date_select :registered_day, include_blank: true, class: 'form-control' %>
+</div>
+
+<div class="field">
+  <%= form.label :link_to_channel, 'Youtube公式チャンネルのリンク' %>
+  <%= form.text_field :link_to_channel %>
+</div>
+
 <div class="actions">
   <%= form.submit '送信' %>
 </div>
