@@ -6,6 +6,15 @@
     </div>
     <div>
         <p class="title"><%= video.title %></p>
+        <% if video.views? %>
+        <p><%= video.views.to_s(:delimited) %> 回視聴</p>
+        <% end %>
+        <% if video.likes? %>
+        <p><%= video.likes.to_s(:delimited) %> Likes</p>
+        <% end %>
+        <% if video.published_day? %>
+        <p><%= video.published_day %> に公開済み</p>
+        <% end %>
     </div>
     <%= link_to '', video.url, class: "card-link" %>
 </div>
